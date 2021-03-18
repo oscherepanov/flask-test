@@ -2,6 +2,7 @@ import os
 
 from flask import Flask
 #from flask_ngrok import run_with_ngrok
+from waitress import serve
 
 app = Flask(__name__)
 #run_with_ngrok(app)
@@ -14,6 +15,7 @@ def index():
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
+    serve(app, host='0.0.0.0', port=port)
+    #app.run(host='0.0.0.0', port=port)
     #app.run()
 
